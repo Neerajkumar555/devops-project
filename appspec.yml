@@ -6,6 +6,7 @@ os: linux
 files:
   - source: /
     destination: /home/ec2-user/server
+    overwrite: true
 
 permissions:
   - object: /
@@ -25,7 +26,12 @@ hooks:
       timeout: 300
       runas: root
 
-  ApplicationStart:
-    - location: scripts/app_start.sh
-      timeout: 1000
-      runas: root
+  # ApplicationStart:
+  #   - location: scripts/app_start.sh
+  #     timeout: 300
+  #     runas: root
+
+  # ValidateService:
+  #   - location: scripts/validate_server.sh
+  #     timeout: 300
+  #     runas: root
